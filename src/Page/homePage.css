@@ -1,0 +1,20 @@
+.logout-button{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+h1{
+    margin-bottom:20px;
+}
+strong{
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+p{
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+
+.personalInfo{
+    padding: auto;
+}
