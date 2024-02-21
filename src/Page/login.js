@@ -1,19 +1,34 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Login() {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-	console.log(username)
-	console.log(password)
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if (password === 'mixzas123' && username === 'mixzapop153') {
-		  navigate('/homepage');
-		} else {
-		  alert("incorrect password");
-		}
+    const userLog = document.getElementById('userNameLogin').value;
+    const passLog = document.getElementById('passWordLogin').value;
+
+    const loginData = {
+      userLog,
+      passLog
+    };
+    console.log(loginData);
+    try {
+      const response = await axios.post('http://localhost:3001/auth', loginData);
+      const isAuthenticated = response.data.authenticated; // Assuming your server sends back an 'authenticated' field
+      console.log(isAuthenticated)
+      if (isAuthenticated) {
+        const userData = response.data.user;
+        navigate('/homepage', { state: { user: userData} });
+      } else {
+        alert("Incorrect Username or password");
+      }
+    } catch (error) {
+      console.error('Error authenticating user: ', error);
+      // Handle error, such as showing an error message to the user
+    }
+    
 	  };
 	  
 
@@ -26,8 +41,7 @@ function Login() {
           <input
             type='text'
             placeholder='EmeraldHippo'
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            id = "userNameLogin"
             required
           />
         </div>
@@ -35,8 +49,7 @@ function Login() {
           <strong>Password</strong>
           <input
             type='password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            id = "passWordLogin"
             required
           />
         </div>

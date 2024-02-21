@@ -1,10 +1,13 @@
-.wrapper{
-    width : 400px;
+.wrapper {
+    width: 400px;
     background: white;
     backdrop-filter: blur(50px);
     border: 2px solid white;
     border-radius: 10px;
+    margin-top: 70px; /* Add margin-top to push the wrapper below the navbar */
 }
+
+/* Rest of your CSS styles */
 
 h1{
     text-align: center;

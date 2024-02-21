@@ -1,26 +1,19 @@
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
-    font-size : 30px;
-    justify-content: top;
-    padding:  10px;
-  }
-
-.navbar-body{
+    font-size: 30px;
+    justify-content: space-between; /* Adjust as needed */
+    padding: 10px;
     background-color: black;
+    color: white; /* Text color */
 }
-.nav-menu {
-	background-color: black;
+
+.menu {
+    text-decoration: none;
+    color: white;
 }
-.brand{
-	background-color: black;
-}
-.menu{
-	background-color: black;
-	text-decoration: none;
-	color: aliceblue;
-}
-.login
-{
-	color: white;
-	text-decoration: none;
-}
+
+/* Add additional styles as needed */
